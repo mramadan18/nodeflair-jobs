@@ -17,7 +17,7 @@ const App = () => {
     <div className="app py-2">
       <div className="container">
         <Row>
-          <Col md={5}>
+          <Col xl={5}>
             {jobs?.map((job, index) => (
               <JobItem
                 key={job.id}
@@ -27,7 +27,7 @@ const App = () => {
               />
             ))}
           </Col>
-          <Col md={7}>
+          <Col xl={7}>
             <TargetJob job={targetJob} />
           </Col>
         </Row>

@@ -10,9 +10,9 @@ const JobItem = ({ index, job, handleTargetJob }) => {
       }`}
       onClick={handleTargetJob}
     >
-      <div className="job-head d-flex justify-content-evenly align-items-start w-100 pb-3">
+      <div className="job-head d-flex justify-content-start align-items-start gap-3 w-100 pb-3">
         <div className="job-head-img">
-          <img src={`/images/${job.image}`} alt="job-1" />
+          <img src={`/images/${job.image}`} alt="job-img" />
         </div>
         <div>
           <p className="mb-0">
