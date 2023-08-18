@@ -1,38 +1,56 @@
-.App {
-  text-align: center;
+.job {
+  border: 1px solid #dfdfdf;
+  transition: all 0.3s ease-in-out;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.job:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25), 0 3px 12px rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.job-head, .job-details {
+  border-bottom: 1px solid #dfdfdf;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.job-head-img {
+  width: 55px;
 }
 
-.App-link {
-  color: #61dafb;
+.handle-scroll {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 100vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.handle-scroll::-webkit-scrollbar-thumb {
+  background-color: #c4c4c4;
+  border-radius: 8px;
+}
+
+.handle-scroll::-webkit-scrollbar {
+  width: 8px;
+  background-color: #F3F2EF;
+}
+
+
+.target-job .btn {
+  transition: all 0.3s ease-in-out;
+}
+
+.target-job .btn-apply:hover,
+.target-job .btn-save:hover,
+.target-job .btn-share:hover {
+  background-color: #1fc76a;
+  transform: translateY(-3px);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1)
+}
+
+.target-job .btn-save:hover, .target-job .btn-share:hover {
+  color: #1fc76a;
+  background-color: #fff;
+  border: 1px solid #1fc76a;
+}
+
+.share-icon {
+  filter: invert(79%) sepia(25%) saturate(6994%) hue-rotate(93deg) brightness(94%) contrast(76%);
 }
