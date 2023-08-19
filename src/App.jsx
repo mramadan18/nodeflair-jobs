@@ -11,7 +11,7 @@ const App = () => {
           <Col xl={5}>
             <JobsList />
           </Col>
-          <Col xl={7} className="d-none d-xl-block">
+          <Col xl={7} className="mt-4 mt-xl-0">
             <TargetJob />
           </Col>
         </Row>
