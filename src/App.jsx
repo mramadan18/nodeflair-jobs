@@ -8,9 +8,11 @@ import "./App.css";
 const App = () => {
   const [jobs] = useState(jobsData);
   const [targetJob, setTargetJob] = useState(jobs[0]);
+  const [selected, setSelected] = useState(1);
 
   const handleTargetJob = (job) => {
     setTargetJob(job);
+    setSelected(job.id);
   };
 
   return (
@@ -21,13 +23,14 @@ const App = () => {
             {jobs?.map((job, index) => (
               <JobItem
                 key={job.id}
-                index={index}
                 job={job}
+                index={index}
+                selected={selected}
                 handleTargetJob={() => handleTargetJob(job)}
               />
             ))}
           </Col>
-          <Col xl={7}>
+          <Col xl={7} className="d-none d-xl-block">
             <TargetJob job={targetJob} />
           </Col>
         </Row>

@@ -49,3 +49,9 @@ img {
 ul li::marker {
   color: #000;
 }
+
+@media (max-width: 567px) {
+  html {
+    font-size: 12px;
+  }
+}

@@ -2,11 +2,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
 import Tag from "./Utilities/Tag";
 
-const JobItem = ({ index, job, handleTargetJob }) => {
+const JobItem = ({ job, handleTargetJob, selected, index }) => {
   return (
     <div
-      className={`job pt-4 pb-2 px-4 bg-white rounded-3 mb-1 border-2 ${
-        index === 0 ? "border-green" : ""
+      className={`job pt-4 pb-2 px-4 bg-white rounded-3 mb-1 position-relative border-3 ${
+        selected === index + 1 ? "border-green" : ""
       }`}
       onClick={handleTargetJob}
     >
@@ -30,8 +30,14 @@ const JobItem = ({ index, job, handleTargetJob }) => {
             </span>
           </div>
         </div>
-        <div className="ms-4">
-          <span className="btn-light-green">Others</span>
+        <div
+          className="ms-4 position-absolute"
+          style={{
+            top: "20px",
+            right: "20px",
+          }}
+        >
+          <span className="btn-light-green fw-bold">{job.name}</span>
         </div>
       </div>
       <div className="d-flex justify-content-start align-items-center gap-3">
