@@ -1,14 +1,22 @@
+import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
-import Tag from "./Utilities/Tag";
+import Tags from "../Utilities/Tags";
+import { chooseJob } from "../../Toolkit/Slices/JobSlice";
 
-const JobItem = ({ job, handleTargetJob, selected, index }) => {
+const JobItem = ({ job }) => {
+  const dispatch = useDispatch();
+  const { targetJob } = useSelector((state) => state.jobs);
+
+  const handleClick = () => {
+    dispatch(chooseJob(job));
+  };
   return (
     <div
       className={`job pt-4 pb-2 px-4 bg-white rounded-3 mb-1 position-relative border-3 ${
-        selected === index + 1 ? "border-green" : ""
+        job.id === targetJob.id ? "border-green" : ""
       }`}
-      onClick={handleTargetJob}
+      onClick={handleClick}
     >
       <div className="job-head d-flex justify-content-start align-items-start gap-3 w-100 pb-3">
         <div className="job-head-img">
@@ -18,7 +26,7 @@ const JobItem = ({ job, handleTargetJob, selected, index }) => {
           <p className="mb-0">
             <span className="me-3">Inspectorio</span>
             <span className="fx-1">
-              3.7 <FontAwesomeIcon icon={faStar} size="2xs" />
+              {job.rate} <FontAwesomeIcon icon={faStar} size="2xs" />
             </span>
           </p>
           <h2 className="h5 fw-bold mt-1">{job.title}</h2>
@@ -40,11 +48,8 @@ const JobItem = ({ job, handleTargetJob, selected, index }) => {
           <span className="btn-light-green fw-bold">{job.name}</span>
         </div>
       </div>
-      <div className="d-flex justify-content-start align-items-center gap-3">
-        {job.tags.map((tag, index) => (
-          <Tag key={index} content={tag} />
-        ))}
-      </div>
+
+      <Tags tags={job.tags} />
     </div>
   );
 };

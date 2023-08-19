@@ -1,37 +1,18 @@
-import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
-import JobItem from "./components/JobItem";
 import TargetJob from "./components/TargetJob/TargetJob";
-import jobsData from "./data/data";
 import "./App.css";
+import JobsList from "./components/Jobs/JobsList";
 
 const App = () => {
-  const [jobs] = useState(jobsData);
-  const [targetJob, setTargetJob] = useState(jobs[0]);
-  const [selected, setSelected] = useState(1);
-
-  const handleTargetJob = (job) => {
-    setTargetJob(job);
-    setSelected(job.id);
-  };
-
   return (
     <div className="app py-2">
       <div className="container">
         <Row>
           <Col xl={5}>
-            {jobs?.map((job, index) => (
-              <JobItem
-                key={job.id}
-                job={job}
-                index={index}
-                selected={selected}
-                handleTargetJob={() => handleTargetJob(job)}
-              />
-            ))}
+            <JobsList />
           </Col>
           <Col xl={7} className="d-none d-xl-block">
-            <TargetJob job={targetJob} />
+            <TargetJob />
           </Col>
         </Row>
       </div>

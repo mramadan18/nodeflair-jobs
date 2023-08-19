@@ -5,6 +5,7 @@ const jobs = [
     title: "Automation Engineer",
     name: "PM",
     location: "Philippines",
+    rate: 4.7,
     tags: ["React"],
   },
   {
@@ -13,6 +14,7 @@ const jobs = [
     title: "Font End Engineer",
     name: "FrontEnd",
     location: "New york",
+    rate: 4,
     tags: ["React", "Nextjs", "javaScript"],
   },
   {
@@ -21,6 +23,7 @@ const jobs = [
     title: "Back End Developer",
     name: "BackEnd",
     location: "Singapore",
+    rate: 3.8,
     tags: ["Nodejs", "Express", "Nustjs"],
   },
   {
@@ -29,6 +32,7 @@ const jobs = [
     title: "C# Devoloper",
     name: "Fullstack",
     location: "Singapore",
+    rate: 3.7,
     tags: ["ASP.NET"],
   },
 ];

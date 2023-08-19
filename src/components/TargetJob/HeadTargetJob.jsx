@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowUpRightFromSquare,
@@ -5,7 +6,8 @@ import {
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
 
-const HeadTargetJob = ({ job }) => {
+const HeadTargetJob = () => {
+  const { targetJob: job } = useSelector((state) => state.jobs);
   return (
     <div className="job-head d-flex justify-content-start align-items-start gap-4 w-100 pb-3 px-4">
       <div className="job-head-img">
@@ -15,7 +17,7 @@ const HeadTargetJob = ({ job }) => {
         <p className="mb-0">
           <span className="me-3">Inspectorio</span>
           <span className="fx-1">
-            3.7 <FontAwesomeIcon icon={faStar} size="2xs" />
+            {job.rate} <FontAwesomeIcon icon={faStar} size="2xs" />
           </span>
         </p>
         <a href="/" className="text-green fw-semibold mt-1 mb-2 d-block">

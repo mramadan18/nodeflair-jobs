@@ -1,7 +1,9 @@
+import { useSelector } from "react-redux";
 import { Row, Col } from "react-bootstrap";
-import Tag from "../Utilities/Tag";
+import Tags from "../Utilities/Tags";
 
-const JobDetails = ({ tags }) => {
+const JobDetails = () => {
+  const { tags } = useSelector((state) => state.jobs.targetJob);
   return (
     <div className="job-details mt-4 pb-4 px-4">
       <Row>
@@ -18,11 +20,8 @@ const JobDetails = ({ tags }) => {
       <Row className="mt-4">
         <Col md={12}>
           <h5 className="fw-bold">Tech Stacks</h5>
-          <div className="d-flex justify-content-start align-items-center gap-3">
-            {tags.map((tag, index) => (
-              <Tag key={index} content={tag} />
-            ))}
-          </div>
+
+          <Tags tags={tags} />
         </Col>
       </Row>
     </div>
